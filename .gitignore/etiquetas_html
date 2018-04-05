@@ -1,0 +1,53 @@
+<?php
+  class html{
+    public function head($titulo="sin titulo",$javascript=""){
+      echo "<!DOCTYPE html><html><head>";
+      echo "<title>$titulo</title>";
+      echo $javascript;
+        //contenido del encabezado
+      echo "</head>";
+    }
+    public function abrirCuerpo(){
+      echo "<body>";
+       
+    }
+    public function cerrarCuerpo(){
+       echo "</body>";
+    }
+    public function pie(){
+      echo "</html>";
+    }
+  }
+  class MiClase{
+    private $nombreObjeto="";
+    public function __construct(){
+      echo "se creó el objeto"."\n";
+    }
+    public function modificarNombre($nuevoNombre){
+      $this->nombreObjeto=$nuevoNombre;
+      echo $this->mostrarNombre()."<br />";
+    }
+    public function mostrarNombre(){
+      return $this->nombreObjeto;
+    }
+  }
+
+
+
+$objetoHtml=new html();
+$objetoHtml->head("Doctor Deseo","<script type='text/javascript'>
+        alert('Hola Deseoso!');
+      </script>");
+$objetoHtml->abrirCuerpo();
+
+
+$objeto1=new MiClase();
+$objeto1->modificarNombre("primer objeto");
+$objeto2=new MiClase();
+$objeto2->modificarNombre("segundo objeto");
+$objeto3=new MiClase();
+$objeto3->modificarNombre("tercer objeto");
+$objeto4=new MiClase();
+$objeto4->modificarNombre("cuarto objeto");
+$objeto5=new MiClase();
+$objeto5->modificarNombre("quinto objeto");
